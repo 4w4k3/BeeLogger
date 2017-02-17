@@ -21,7 +21,6 @@ Taken from [LICENSE](LICENSE).
 - Send logs when chars > 50.
 - Send logs with gmail.
 - Bypass UAC.
-- Auto Persistence.
 
 ### Prerequisites
 
