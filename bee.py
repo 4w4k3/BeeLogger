@@ -150,7 +150,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
                 heading()
-                os.system('sudo rm -Rf Templates/k_enc.py')               
+                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name           
             elif choice == '2':
                 begin()
@@ -160,7 +160,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
                 heading()
-                os.system('sudo rm -Rf Templates/k_enc.py')                               
+                                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '3':
                 begin()
@@ -170,7 +170,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
                 heading()
-                os.system('sudo rm -Rf Templates/k_enc.py')                               
+                                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '4':
                 begin()
@@ -180,7 +180,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear() 
                 heading()
-                os.system('sudo rm -Rf Templates/k_enc.py')                               
+                                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '5':
                 begin()
@@ -190,10 +190,9 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
                 heading()
-                os.system('sudo rm -Rf Templates/k_enc.py')                               
+                                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
             if choice.upper() == 'U' or choice.upper() == 'UPDATE':
-		clear()
 		os.system('python2.7 updater.py')
             if choice.upper() == 'EXIT' or choice.upper() == 'CLOSE':
                 clear()
@@ -209,5 +208,4 @@ def main():
 if __name__ == '__main__':
 
     main()
-
 
