@@ -7,7 +7,7 @@ With auto persistence this tool is powerful.
 
 ## You are in Linux Version ##
 
-Download Windows Version [here](https://drive.google.com/file/d/0B_B_8QZsqdY9VWZVU3IycDFWZ1E).
+Download Windows Version [here](https://drive.google.com/open?id=0B_B_8QZsqdY9QXlSYnZCNTlFMWs).
 
 
 ## DISCLAIMER: 
