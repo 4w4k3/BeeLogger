@@ -5,11 +5,6 @@ Written by: * **Alisson Moretto** - [4w4k3](https://github.com/4w4k3)
 Generate gmail emailing keyloggers to windows, powered by python and compiled by pyinstaller.
 With auto persistence this tool is powerful.
 
-## You are in Linux Version ##
-
-Download Windows Version [here](https://drive.google.com/open?id=0B_B_8QZsqdY9QXlSYnZCNTlFMWs).
-
-
 ## DISCLAIMER: 
 
 "DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
