@@ -2,11 +2,13 @@
 Copyright 2017 BeeLogger
 Written by: * **Alisson Moretto** - [4w4k3](https://github.com/4w4k3)
 
+Generate gmail emailing keyloggers to windows, powered by python and compiled by pyinstaller.
+With auto persistence this tool is powerful.
+
 ## You are in Linux Version ##
 
 Download Windows Version [here](https://doc-0c-ak-docs.googleusercontent.com/docs/securesc/e4mp7eb5liv3sln8pmd22ersk9v2joqp/icu01es938l6jn4fpf8u3e6vkeh039fo/1487613600000/08589930025692770374/00303236261661146918/0B_B_8QZsqdY9VWZVU3IycDFWZ1E?e=download&nonce=t3922qd5q0tei&user=00303236261661146918&hash=vj67bjmdq43vnn5bklq30460ns50euq9).
 
-Generate gmail emailing keyloggers to windows on linux, powered by python and compiled by pyinstaller.
 
 ## DISCLAIMER: 
 
