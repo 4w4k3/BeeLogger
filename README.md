@@ -23,6 +23,7 @@ Taken from [LICENSE](LICENSE).
 - Some Phishing methods are included.
 - Multiple Session disabled.
 - Bypass UAC.
+- Auto Persistence.
 
 ### Prerequisites
 
