@@ -50,7 +50,7 @@ Taken from [LICENSE](LICENSE).
 
 ### Cloning:
 ```
-git clone https://github.com/4w4k3/BeeLogger/.git
+git clone https://github.com/4w4k3/BeeLogger.git
 ```
 
 ### Running:
