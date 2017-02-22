@@ -44,10 +44,14 @@ def download_python_win_exten():
     os.system('sudo wine pywin32-220.win32-py2.7.exe')
     os.system('sudo wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pip.exe install pyinstaller')
     os.system('clear')
+
+def download_vc_for_py():
+    banner("Downloading VCForPython27.msi, please wait...")
+    os.system('wget https://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi')
+    os.system('sudo wine msiexec /i VCForPython27.msi /L*v log2.txt')
+    os.system('mkdir .OK')
     os.system('sudo rm -Rf log2.txt')
     os.system('sudo rm -Rf log.txt')
-
-
 
 def main():
     print("\n")
@@ -59,6 +63,7 @@ def main():
     banner("Moving to dependent files..")
     print("\n")
     download_python_win_exten()
+    download_vc_for_py()
 
 
 if __name__ == '__main__':
