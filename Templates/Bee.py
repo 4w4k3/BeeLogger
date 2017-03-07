@@ -3,6 +3,7 @@ from os import path
 from sys import exit
 import threading
 import urllib,urllib2
+import shutil
 import smtplib
 import datetime,time
 import win32com.client
