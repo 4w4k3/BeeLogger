@@ -26,13 +26,10 @@ def install_dependencies():
     os.system('clear')
 
 def download_python():
-    """ Download python for some reason..? """
-    banner("Downloading Python 2.7.x.msi, please wait...")
-    os.system('wget https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi')
     os.system('sudo wine msiexec /i python-2.7.12.msi /L*v log.txt')
 
 def download_python_win_exten():
-    """ Download Windows extenstion for python without checking the checksum.. """
+    """ Downloading Windows extenstion. please wait... """
     banner("Installing pywin32-220.win32-py2.7.exe (Windows extension), please wait...")
     os.system('sudo wine pywin32-220.win32-py2.7.exe')
     os.system('sudo wine pyHook-1.5.1.win32-py2.7.exe')
