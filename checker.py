@@ -35,6 +35,7 @@ def download_python_win_exten():
     os.system('sudo wine pyHook-1.5.1.win32-py2.7.exe')
     os.system('sudo wine pywin32-220.win32-py2.7.exe')
     os.system('sudo wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pip.exe install pyinstaller')
+    os.system('sudo wine /root/.wine/drive_c/Python27/python.exe -m pip install pyinstaller')
     os.system('clear')
 
 def download_vc_for_py():
