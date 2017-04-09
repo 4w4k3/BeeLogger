@@ -4,9 +4,41 @@ Copyright 2017 BeeLogger
 Written by: * **Alisson Moretto** - [4w4k3](https://github.com/4w4k3)
 Twitter: @4w4k3Official
 
-~ NEW VERSION RELEASED: 2.0 ~
--> Better way to check dependencies to fix some errors added.
--> Disabled TimeSleep to don't lost keys.
+## HOW TO INSTALL:
+
+Video: https://www.youtube.com/watch?v=ifOGkOTS5zk
+
+### Cloning:
+```
+git clone https://github.com/4w4k3/BeeLogger.git
+```
+
+### Running:
+```
+cd BeeLogger
+```
+
+```
+sudo su
+```
+
+```
+chmod +x install.sh
+```
+
+```
+./install.sh
+```
+
+```
+python bee.py
+```
+
+If you have another version of Python:
+
+```
+python2.7 bee.py
+```
 
 ## DISCLAIMER: 
 
@@ -49,21 +81,7 @@ Taken from [LICENSE](LICENSE).
 + Debian 8.5
 + Linux Mint 18.1
 
-### Cloning:
-```
-git clone https://github.com/4w4k3/BeeLogger.git
-```
 
-### Running:
-```
-sudo python bee.py
-```
-
-If you have another version of Python:
-
-```
-sudo python2.7 bee.py
-```
 
 ### Screenshot:
 ![Shot](https://github.com/4w4k3/BeeLogger/blob/master/Screens/shot.png)
