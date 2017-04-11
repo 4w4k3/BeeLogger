@@ -4,6 +4,8 @@ Copyright 2017 BeeLogger
 Written by: * **Alisson Moretto** - [4w4k3](https://github.com/4w4k3)
 Twitter: @4w4k3Official
 
+** Only download it here, do not trust other places. **
+
 ## HOW TO INSTALL:
 
 Video: https://www.youtube.com/watch?v=ifOGkOTS5zk
