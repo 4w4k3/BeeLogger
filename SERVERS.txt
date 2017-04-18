@@ -1,0 +1,10 @@
+
+SERVER: 'smtp.gmail.com' PORT 587  *** RECOMMENDED *** - STATUS: Tested OK
+
+SERVER: 'smtp.live.com' PORT: 587 - STATUS: Tested OK
+
+SERVER: 'smtp.mail.yahoo.com' PORT: 465 - STATUS: Non Tested 
+
+SERVER: 'smtp.gmx.com' PORT: 25 - STATUS: Non Tested
+
+Feel free to search yourself if your desired don't appears in this list and send it on github.com/4w4k3/BeeLogger if you want contribute with Bee.
