@@ -62,7 +62,6 @@ Taken from [LICENSE](LICENSE).
 - Send logs with CUSTOM SMTP EMAIL SERVER.
 - Some Phishing methods are included.
 - Multiple Session disabled.
-- Bypass UAC.
 - Auto Persistence.
 
 ### Prerequisites
