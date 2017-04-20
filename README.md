@@ -6,7 +6,9 @@ Twitter: @4w4k3Official
 
 TOOL DESIGNED TO GOOD PURPOSES, PENTESTS, DON'T BE A CRIMINAL !
 
-**Only download it here, do not trust other places.**
+**Only download it here, do not trust in other places.**
+
+NOTE: BeeLogger just have official support for latin languages in the moment.
 
 ## HOW TO INSTALL:
 
