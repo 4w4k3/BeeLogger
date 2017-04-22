@@ -61,7 +61,7 @@ Taken from [LICENSE](LICENSE).
 
 - Send logs each 120 seconds.
 - Send logs when chars > 50.
-- Send logs with CUSTOM SMTP EMAIL SERVER.
+- Send logs with GMAIL.
 - Some Phishing methods are included.
 - Multiple Session disabled.
 - Auto Persistence.
