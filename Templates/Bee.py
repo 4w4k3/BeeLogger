@@ -1,7 +1,6 @@
 import pythoncom
 import pyHook
 from os import path
-from sys import exit
 import threading
 import urllib,urllib2
 import smtplib
