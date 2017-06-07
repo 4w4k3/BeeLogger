@@ -57,6 +57,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
 Taken from [LICENSE](LICENSE).
 
+## TO KNOW
+To disable bee just run [UnInfectMe.bat](UnInfectMe.bat) on target.
+
 ## Features 
 
 - Send logs each 120 seconds.
