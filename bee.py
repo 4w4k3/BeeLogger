@@ -61,7 +61,7 @@ def heading():
     sys.stdout.write(YELLOW + '''
 
                 .' '. I BEE YOU  __
-       .        .   .          \(__\_/             Version: 2.2
+       .        .   .          \(__\_/             Version: 2.3
         .         .         . -{{#(|8)
           ' .  . ' ' .  . '    /(__/ \      by:''' + WHITE + ' Alisson Moretto (' + YELLOW + '4w4k3' + WHITE + ')' + '\n' + '\n' + END) 
     print ' {0}[{1}K{0}]{1} Generate Keylogger  {0}[{1}U{0}]{1} Update  {0}[{1}Q{0}]{1} Quit  '.format(YELLOW, WHITE) + '\n'
