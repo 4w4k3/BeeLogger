@@ -4,10 +4,12 @@
 # Written by: * Alisson Moretto - 4w4k3
 # https://github.com/4w4k3/BeeLogger
 # Licensed under the BSD-3-Clause
+import os
+import sys
 import subprocess
 import urllib2
 
-
+# create def update_client_version(version):
 def update_client_version(version):
     with open("version.txt", "r") as vnum:
         if vnum.read() != version:
@@ -15,7 +17,7 @@ def update_client_version(version):
         else:
             return False
 
-
+# create def main():
 def main():
     version = urllib2.urlopen("https://raw.githubusercontent.com/4w4k3/BeeLogger/master/version.txt").read()
     if update_client_version(version) is True:
